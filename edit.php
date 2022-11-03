@@ -25,8 +25,8 @@ $phno=$row['user_phoneno'];
         user_company='$company', user_phoneno='$phoneno' where id=$sn";
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            echo "<font color='darkgreen'>" .  "Success update" . " </font>";
             header("location:usermanage.php");
+            $_SESSION['update']="UPDATE DONE";
         } else {
             die(mysqli_error($con));
         }

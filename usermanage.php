@@ -40,6 +40,13 @@ include 'db/dbconnect.php';
         } else {
             $page = 1;
         }
+        //to print success on update
+        if(isset($_SESSION['update'])){
+            $update = $_SESSION['update'];
+            echo "<p class='msg'>$update</p>";
+            unset($_SESSION['update']);
+
+        }
         $start_from = ($page - 1) * $num_per_page;
         $sql = "SELECT * FROM users limit $start_from, $num_per_page ";
         $result = mysqli_query($conn, $sql);
