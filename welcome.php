@@ -1,20 +1,18 @@
 <?php
-include'dashboard.php';
-include 'db/dbconnect.php';
+require 'dashboard.php';
+require 'db/dbconnect.php';
 //to fetch name of user
 $user=$_SESSION['email'];
 
 $sqli1="SELECT * FROM users WHERE user_email='$user'";
 
-$result = mysqli_query($conn,$sqli1);
+$result = mysqli_query($conn, $sqli1);
 // echo $result['user_name'];
-if($result == true) {
-while($row = mysqli_fetch_assoc($result))
- {
-    $_SESSION['user_name']=$row['user_name'];
- }
-}
-else {
+if ($result == true) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $_SESSION['user_name']=$row['user_name'];
+    }
+} else {
     echo "error";
 }
 ?>

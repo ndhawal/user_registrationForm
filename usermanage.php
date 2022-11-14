@@ -1,6 +1,6 @@
 <?php
-include 'dashboard.php';
-include 'db/dbconnect.php';
+require 'dashboard.php';
+require 'db/dbconnect.php';
 
 
 ?>
@@ -33,15 +33,13 @@ include 'db/dbconnect.php';
         $total_records = mysqli_num_rows($result);
         $num_per_page = 04;
         $total_pages = ceil($total_records / $num_per_page);
-
-
         if (isset($_GET["page"])) {
             $page = $_GET["page"];
         } else {
             $page = 1;
         }
         //to print success on update
-        if(isset($_SESSION['update'])){
+        if (isset($_SESSION['update'])) {
             $update = $_SESSION['update'];
             echo "<p class='msg'>$update</p>";
             unset($_SESSION['update']);
@@ -51,7 +49,6 @@ include 'db/dbconnect.php';
         $sql = "SELECT * FROM users limit $start_from, $num_per_page ";
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            $i = 1;
             while ($row = mysqli_fetch_assoc($result)) {
                 $sn = $row['id'];
                 $name = $row['user_name'];
@@ -68,11 +65,11 @@ include 'db/dbconnect.php';
     <td>' . $phno . '</td>
     <td>
     <button id="button1"><a href="edit.php?editid=' . $sn . '">Edit</a></button>
-        <button id ="button2"><a href="delete.php?deleteid=' . $sn . '">Delete</a></button>
-    </td>
+             <button id ="button2"><a href="delete.php?deleteid=' . $sn . 
+                    '">Delete</a></button>
+        </td>
  
   </tr> ';
-   $i++;
             }
             echo "</table>";
         }
