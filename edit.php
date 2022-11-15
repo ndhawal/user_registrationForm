@@ -1,10 +1,22 @@
 <?php
+/**
+ * * MyClass Class Doc Comment
+ * php version 7
+ * 
+ * @var mysqli $conn 
+ * 
+ * @category Class
+ * @package  MyPackage
+ * @author   Niraj <nkrneerazz@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     http://www.hashbangcode.com/
+ */
+require 'db/dbconnect.php';
 session_start();
 if (!isset($_SESSION['email'])) {
     echo "please login first";
     header("location:login.php");
 }
-require 'db/dbconnect.php';
 $sn = $_GET['editid'];
 $sql = "select * from users where id=$sn";
 $result = mysqli_query($conn, $sql);
@@ -28,7 +40,7 @@ if (isset($_POST['submit'])) {
         header("location:usermanage.php");
         $_SESSION['update'] = "UPDATE DONE";
     } else {
-        die(mysqli_error($con));
+        die(mysqli_error($conn));
     }
 }
 ?>

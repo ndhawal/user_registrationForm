@@ -1,4 +1,16 @@
 <?php
+/**
+ * * MyClass Class Doc Comment
+ * php version 7
+ * 
+ * @var mysqli $conn 
+ * 
+ * @category Class
+ * @package  MyPackage
+ * @author   Niraj <nkrneerazz@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     http://www.hashbangcode.com/
+ */
 require 'dashboard.php';
 require 'db/dbconnect.php';
 if (isset($_POST['submit'])) {
@@ -38,7 +50,10 @@ if (isset($_POST['submit'])) {
                 echo " <p class='msg'>Sorry, your file was not uploaded.</p>";
                 // if everything is ok, try to upload file
             } else {
-                if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+                if (move_uploaded_file(
+                    $_FILES["fileToUpload"]["tmp_name"], $target_file
+                )
+                ) {
                     $sql = "INSERT INTO `document` (`doc_name`, `doc_url`)
     VALUES ('$name', '$target_name')";
                     $result = mysqli_query($conn, $sql);

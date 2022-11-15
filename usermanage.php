@@ -1,8 +1,18 @@
 <?php
+/**
+ * * MyClass Class Doc Comment
+ * php version 7
+ * 
+ * @var mysqli $conn 
+ * 
+ * @category Class
+ * @package  MyPackage
+ * @author   Niraj <nkrneerazz@gmail.com>
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     http://www.hashbangcode.com/
+ */
 require 'dashboard.php';
 require 'db/dbconnect.php';
-
-
 ?>
 <!DOCTYPE html>
 <html>
