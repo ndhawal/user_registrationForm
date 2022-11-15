@@ -8,7 +8,7 @@
  * @category Class
  * @package  MyPackage
  * @author   Niraj <nkrneerazz@gmail.com>
- * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @license  http://www.gnu.org/copyleft/gpl.html General Public License
  * @link     http://www.hashbangcode.com/
  */
 $server = "localhost";
